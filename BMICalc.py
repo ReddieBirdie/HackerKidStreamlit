@@ -13,13 +13,21 @@ if st. button('Calculate BMI'):
     bmi_status = ""
     if bmi < 18.5:
         bmi_status = "underweight"
-        st.error(f"you are {bmi_status}")
+
     elif bmi >= 18.5 and bmi <=24.9:
         bmi_status ="normal"
-        st. success(f"you are {bmi_status}")
+
     elif bmi >= 24.2 and bmi <= 29.9:
         bmi_status ="overweight"
-        st.warning(f"you are {bmi_status}")
+
     else:
         bmi_status = "obese"
-        st.error(f"you are {bmi_status}")
+
+    html_code = f"""
+
+        <div style = "background-color : #fff3e0; padding : 20px; border-radius : 10px; border-left: 5px solid orange;margin-top : 20px ">
+        <h3 style = "color: #6d4c41;"> Your BMI : {bmi}</h3>
+        <p style = "font-size : 16px; color : #444"> Health Status : <b>{bmi_status}</b></p>
+        </div>
+        """
+    st.markdown(html_code, unsafe_allow_html=True)
